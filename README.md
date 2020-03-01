@@ -1,4 +1,4 @@
-This was cloned from codingforentrepreneurs' try_django 1.8 project as instructed.
+**This was cloned from codingforentrepreneurs' try_django 1.8 project as instructed.**
 
 ![Try Django 1.8 Logo](https://cfe-static.s3.amazonaws.com/media/try-django-18/images/try_django_18.png)
 
