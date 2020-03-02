@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.shortcuts import render
 
@@ -46,7 +47,7 @@ def home(request):
 	return render(request, "home.html", context)
 
 
-
+@login_required
 def contact(request):
 	title = 'Contact Us'
 	title_align_center = True
@@ -62,17 +63,17 @@ def contact(request):
 		subject = 'Site contact form'
 		from_email = settings.EMAIL_HOST_USER
 		to_email = [from_email, 'youotheremail@email.com']
-		contact_message = "%s: %s via %s"%( 
-				form_full_name, 
-				form_message, 
+		contact_message = "%s: %s via %s"%(
+				form_full_name,
+				form_message,
 				form_email)
 		some_html_message = """
 		<h1>hello</h1>
 		"""
-		send_mail(subject, 
-				contact_message, 
-				from_email, 
-				to_email, 
+		send_mail(subject,
+				contact_message,
+				from_email,
+				to_email,
 				html_message=some_html_message,
 				fail_silently=True)
 
@@ -82,19 +83,3 @@ def contact(request):
 		"title_align_center": title_align_center,
 	}
 	return render(request, "forms.html", context)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
